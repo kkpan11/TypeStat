@@ -84,4 +84,39 @@
 
 		return "";
 	};
+
+	async function navigateTo(): Promise<boolean> {
+		return await new Promise(() => "");
+	}
+
+	function navigateByUrl(url: string): Promise<boolean>;
+
+	async function navigateTo(): Promise<boolean> {
+		return await navigateByUrl("");
+	}
+
+	async function navigateTo2(): Promise<boolean> {
+		const navigated = await navigateByUrl("");
+		return navigated;
+	}
+
+	async function returnSame(): Promise<boolean> {
+		return navigateByUrl("");
+	}
+
+	async function returnPromise(): Promise<string> {
+		return Promise.resolve("");
+	}
+
+	const returnsBigInt = (): string => {
+		return BigInt("123");
+	};
+
+	const returnsBigintOrNumber = (): number => {
+		return 123n;
+	};
+
+	const returnsNumberAndBigint = (): bigint => {
+		return 123;
+	};
 })();
